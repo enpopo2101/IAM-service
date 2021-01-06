@@ -10,4 +10,7 @@ export class UserService {
     const user = await this.userModel.findOne({ username });
     return user;
   }
+  async getListUser() {
+    return await this.userModel.find().lean().exec();
+  }
 }

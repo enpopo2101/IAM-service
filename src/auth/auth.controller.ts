@@ -7,7 +7,8 @@ export class AuthController {
   constructor(private authService: AuthService) {}
   @Post('/login')
   async login(@Body() data: AuthDto) {
-    return await this.authService.login(data);
+    const token = await this.authService.login(data);
+    return { token };
   }
 
   @Post('/register')
